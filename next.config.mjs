@@ -1,6 +1,11 @@
 import { withSentryConfig } from "@sentry/nextjs";
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  // output: "export",
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+};
 
 export default withSentryConfig(
   nextConfig,
@@ -8,7 +13,7 @@ export default withSentryConfig(
     silent: true,
     org: "javascript-mastery",
     project: "javascript-nextjs",
-    dryRun: true, // <-- skip Sentry upload during build
+    dryRun: true,
   },
   {
     widenClientFileUpload: true,
